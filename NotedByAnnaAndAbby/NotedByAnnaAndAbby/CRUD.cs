@@ -13,7 +13,7 @@ namespace NotedByAnnaAndAbby
         public BindingList<T> Items = new BindingList<T> ();
         public void Create()
         {
-            T x = new T().NewNote();
+            T x = new T().NewObj();
             Items.Add(x);
         }
 

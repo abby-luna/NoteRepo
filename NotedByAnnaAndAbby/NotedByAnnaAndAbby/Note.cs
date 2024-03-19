@@ -30,7 +30,7 @@ namespace NotedByAnnaAndAbby
             return Id;
         }
 
-        public Note NewNote()
+        public Note NewObj()
         {
             CreateUpdateNote frm2 = new CreateUpdateNote();
             DialogResult dr = frm2.ShowDialog();

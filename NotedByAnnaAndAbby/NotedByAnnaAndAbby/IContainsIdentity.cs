@@ -10,7 +10,7 @@ namespace NotedByAnnaAndAbby
     {
 
         int GetId();
-        T NewNote();
+        T NewObj();
 
     }
 }
