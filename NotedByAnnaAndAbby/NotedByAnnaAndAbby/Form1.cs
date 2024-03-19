@@ -10,29 +10,27 @@ using System.Windows.Forms;
 
 namespace NotedByAnnaAndAbby
 {
+
     public partial class Form1 : Form
     {
 
-        List<Note> notes = new List<Note>();
+        CRUD<Note> crud = new CRUD<Note>();
+
         public Form1()
         {
             InitializeComponent();
-
-            notes.Add(new Note(1, "Hello", "World"));
-            notes.Add(new Note(2, "e", "World"));
-            notes.Add(new Note(3, "q", "World"));
-            notes.Add(new Note(4, "e", "World"));
-            notes.Add(new Note(5, "w", "World"));
-            notes.Add(new Note(6, "r", "World"));
-            notes.Add(new Note(7, "t", "World"));
-            notes.Add(new Note(8, "b", "World"));
-
-
-            dataGridView1.DataSource = notes;
+            BindingSource source = new BindingSource(crud.Items, null);
+            dataGridView1.DataSource = source;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            crud.Create();
+            //dataGridView1.DataSource = crud.Items;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
