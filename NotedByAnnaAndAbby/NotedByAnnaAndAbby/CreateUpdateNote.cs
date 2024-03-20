@@ -21,6 +21,8 @@ namespace NotedByAnnaAndAbby
             if(update != null ) 
             {
                 textBox1.Text = update.Id.ToString();
+                textBox1.Enabled = false;
+
                 textBox2.Text = update.Title;
                 textBox3.Text = update.Content;
 

@@ -19,7 +19,19 @@ namespace NotedByAnnaAndAbby
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            int pos = -1;
+            for(int i = 0; i < Items.Count; i++)
+            {
+                if (i.GetHashCode() == Id) pos = i;
+            }
+            if(pos >= 0)
+            {
+                Items.RemoveAt(pos);
+            }
+            else
+            {
+                throw new Exception("Item does not exist");
+            }
         }
 
         public T Read(int Id)
@@ -33,7 +45,8 @@ namespace NotedByAnnaAndAbby
 
         public void Update(int Id)
         {
-            throw new NotImplementedException();
+            T updateItem = Read(Id);
+            updateItem.UpdateObj();
         }
 
     }

@@ -49,5 +49,26 @@ namespace NotedByAnnaAndAbby
             }
             throw new Exception("E");
         }
+
+        public void UpdateObj()
+        {
+            CreateUpdateNote frm2 = new CreateUpdateNote();
+            DialogResult dr = frm2.ShowDialog();
+            if (dr == DialogResult.Cancel)
+            {
+                frm2.Close();
+            }
+            else if (dr == DialogResult.OK)
+            {
+                //textBox1.Text = frm2.getText();
+
+                this.Title = frm2.getTitle();
+                this.Content = frm2.getContent();
+                frm2.Close();
+              
+
+            }
+            throw new Exception("E");
+        }
     }
 }

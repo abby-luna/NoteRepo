@@ -11,6 +11,7 @@ namespace NotedByAnnaAndAbby
 
         int GetId();
         T NewObj();
+        void UpdateObj();
 
     }
 }
