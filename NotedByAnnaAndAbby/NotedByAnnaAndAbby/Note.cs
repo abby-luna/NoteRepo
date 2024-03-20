@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,7 +53,7 @@ namespace NotedByAnnaAndAbby
 
         public void UpdateObj()
         {
-            CreateUpdateNote frm2 = new CreateUpdateNote();
+            CreateUpdateNote frm2 = new CreateUpdateNote(this);
             DialogResult dr = frm2.ShowDialog();
             if (dr == DialogResult.Cancel)
             {
@@ -65,6 +66,7 @@ namespace NotedByAnnaAndAbby
                 this.Title = frm2.getTitle();
                 this.Content = frm2.getContent();
                 frm2.Close();
+                return;
               
 
             }

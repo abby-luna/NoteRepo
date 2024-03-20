@@ -22,7 +22,7 @@ namespace NotedByAnnaAndAbby
             int pos = -1;
             for(int i = 0; i < Items.Count; i++)
             {
-                if (i.GetHashCode() == Id) pos = i;
+                if (i.GetId() == Id) pos = i;
             }
             if(pos >= 0)
             {
@@ -47,6 +47,7 @@ namespace NotedByAnnaAndAbby
         {
             T updateItem = Read(Id);
             updateItem.UpdateObj();
+            Items.ResetBindings();
         }
 
     }

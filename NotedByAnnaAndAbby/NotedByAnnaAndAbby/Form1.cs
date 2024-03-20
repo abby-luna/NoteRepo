@@ -16,8 +16,10 @@ namespace NotedByAnnaAndAbby
 
         CRUD<Note> crud = new CRUD<Note>();
 
-        const int MODIFY = 3;
-        const int DELETE = 4;
+        const int MODIFY = 0;
+        const int DELETE = 1;
+
+        const int ID_COL = 2;
 
         public Form1()
         {
@@ -52,13 +54,16 @@ namespace NotedByAnnaAndAbby
 
         private void dataGridView1_CellContent(object sender, DataGridViewCellEventArgs e)
         {
+            int c = e.ColumnIndex;
             if (e.ColumnIndex == MODIFY || e.ColumnIndex == DELETE)
             {
-                int ID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                int ID = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[ID_COL].Value.ToString());
 
                 if (e.ColumnIndex == MODIFY)
                 {
+
                     crud.Update(ID);
+                    
                 }
                 else if (e.ColumnIndex == DELETE)
                 {
