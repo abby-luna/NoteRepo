@@ -8,7 +8,6 @@ namespace NotedByAnnaAndAbby
 {
     public interface IContainsIdentity<T>
     {
-
         int GetId();
         T NewObj();
         void UpdateObj();
