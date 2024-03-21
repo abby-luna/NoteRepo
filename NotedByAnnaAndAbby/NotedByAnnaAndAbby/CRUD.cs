@@ -14,24 +14,27 @@ namespace NotedByAnnaAndAbby
         public void Create()
         {
             T x = new T().NewObj();
+            foreach(T item in Items) 
+            {
+                if (item.GetId() == x.GetId()) 
+                    throw new Exception(string.Format("Item with id {0} already exists", x.GetId()));
+            }
             Items.Add(x);
         }
 
         public void Delete(int Id)
         {
-            int pos = -1;
             for(int i = 0; i < Items.Count; i++)
             {
-                if (i.GetId() == Id) pos = i;
+                if (Items[i].GetId() == Id)
+                {
+                    Items.RemoveAt(i);
+                    return;
+                }
             }
-            if(pos >= 0)
-            {
-                Items.RemoveAt(pos);
-            }
-            else
-            {
-                throw new Exception("Item does not exist");
-            }
+
+            throw new Exception("Item does not exist");
+          
         }
 
         public T Read(int Id)
