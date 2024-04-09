@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace NotedByAnnaAndAbby
+namespace NotedByAbbyAnna
 {
     public partial class CreateUpdateNote : Form
     {
-        public CreateUpdateNote(Note update = null)
+
+        BindingList<Category> Cats = new BindingList<Category>();
+
+        public CreateUpdateNote(BindingList<Category> catagories, Note update = null)
         {
             InitializeComponent();
 
             button1.DialogResult = DialogResult.OK;
-
+            Cats = catagories;
             if (update != null)
             {
                 textBox1.Text = update.Id.ToString();
@@ -27,6 +31,8 @@ namespace NotedByAnnaAndAbby
                 richTextBox1.Text = update.Content;
 
             }
+            comboBox1.DataSource = Cats;
+            comboBox1.DisplayMember = "Text";
         }
 
         public int getID()
@@ -44,7 +50,19 @@ namespace NotedByAnnaAndAbby
             return this.richTextBox1.Text;
         }
 
+        public Category getCatogory()
+        {
+
+            return (Category)this.comboBox1.SelectedItem;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
