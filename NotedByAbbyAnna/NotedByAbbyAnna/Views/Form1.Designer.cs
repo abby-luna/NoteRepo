@@ -32,6 +32,7 @@
             textBox1 = new TextBox();
             label1 = new Label();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -76,11 +77,23 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(751, 324);
+            button2.Name = "button2";
+            button2.Size = new Size(160, 40);
+            button2.TabIndex = 4;
+            button2.Text = "Edit Catogories";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(923, 450);
+            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(textBox1);
@@ -99,5 +112,6 @@
         private TextBox textBox1;
         private Label label1;
         private Button button1;
+        private Button button2;
     }
 }

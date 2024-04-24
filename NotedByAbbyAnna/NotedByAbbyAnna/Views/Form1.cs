@@ -8,15 +8,12 @@ namespace NotedByAbbyAnna
         BindingList<Note> notes = new BindingList<Note>();
         BindingList<Note> allNotes = new BindingList<Note>();
 
-        BindingList<Category> catogory = new BindingList<Category>() {
-            new Category(1, "Personal Notes", Color.Black, Color.White),
-            new Category(2, "Dont open Notes", Color.White, Color.Black),
-            new Category(3, "Love Notes", Color.Red, Color.Green)
-
-        };
+        BindingList<Category> catogory = new BindingList<Category>();
 
 
         NoteCrud NC;
+        CatogoryCRUD CC;
+
 
         const int CATEGORY = 0;
         const int MODIFY = 1;
@@ -57,7 +54,14 @@ namespace NotedByAbbyAnna
 
             dataGridView1.CellFormatting += DataGridView1_CellFormatting;
 
+
+            CC = new CatogoryCRUD(catogory);
+            CC.ImportObjFromFile();
+
             NC = new NoteCrud(allNotes, catogory);
+            NC.ImportObjFromFile();
+
+
 
             renderVisbleNotes();
 
@@ -135,8 +139,29 @@ namespace NotedByAbbyAnna
 
         private void button1_Click(object sender, EventArgs e)
         {
-            NC.NewObj();
-            renderVisbleNotes();   
+            try
+            {
+                NC.NewObj();
+                renderVisbleNotes();
+            }
+            catch { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ManageCatogories frm2 = new ManageCatogories(CC);
+            try
+            {
+                frm2.ShowDialog();
+                catogory = frm2.CC.AllCatogories;
+                renderVisbleNotes();
+                frm2.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+
         }
     }
 }

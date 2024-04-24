@@ -13,7 +13,7 @@ namespace NotedByAbbyAnna
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public Category Cat = new Category(888, "Hello", Color.AliceBlue, Color.Green);
+        public Category Cat = new Category(9999, "Note", Color.White, Color.Black);
         public Note() { }
 
         public Note(int id, string title, string content, Category c)

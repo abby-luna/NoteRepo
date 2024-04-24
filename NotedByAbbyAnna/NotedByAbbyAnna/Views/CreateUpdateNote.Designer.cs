@@ -34,7 +34,6 @@
             label1 = new Label();
             label2 = new Label();
             richTextBox1 = new RichTextBox();
-            button2 = new Button();
             label3 = new Label();
             label4 = new Label();
             comboBox1 = new ComboBox();
@@ -100,17 +99,6 @@
             richTextBox1.TabIndex = 6;
             richTextBox1.Text = "";
             // 
-            // button2
-            // 
-            button2.Font = new Font("Microsoft Sans Serif", 12.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.Location = new Point(495, 548);
-            button2.Margin = new Padding(3, 4, 3, 4);
-            button2.Name = "button2";
-            button2.Size = new Size(115, 46);
-            button2.TabIndex = 7;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -149,7 +137,6 @@
             Controls.Add(comboBox1);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(button2);
             Controls.Add(richTextBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -171,7 +158,6 @@
         private Label label1;
         private Label label2;
         private RichTextBox richTextBox1;
-        private Button button2;
         private Label label3;
         private Label label4;
         private ComboBox comboBox1;

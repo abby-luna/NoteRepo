@@ -9,10 +9,10 @@ namespace NotedByAbbyAnna
     public class Category
     {
 
-        public int ID;
+        public int ID { get; set; }
         public Color BackgroundColor;
         public Color TextColor;
-        public string Text {  get; set; }
+        public string Text { get; set; }
         public Category()
         {
 

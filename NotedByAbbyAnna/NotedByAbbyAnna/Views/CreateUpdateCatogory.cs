@@ -18,23 +18,35 @@ namespace NotedByAbbyAnna
     public partial class CreateUpdateCatogory : Form
     {
 
-        Color bg = Color.White;
-        Color text = Color.Black;
-        public CreateUpdateCatogory(Category c=null)
+        public Color bg = Color.White;
+        public Color text = Color.Black;
+
+        BindingList<Category> AllCurrent;
+
+        public int getID()
+        {
+            return int.Parse(this.textBox2.Text);
+        }
+        public string getText()
+        {
+            return textBox1.Text;
+        }
+        public CreateUpdateCatogory(Category c = null, BindingList<Category> allCurrent=null)
         {
             InitializeComponent();
 
-
-            if (c != null ) 
-            { 
-                bg = c.BackgroundColor; 
+            AllCurrent = allCurrent;
+            if (c != null)
+            {
+                textBox2.Enabled = false;
+                textBox2.Text = c.ID.ToString();
+                bg = c.BackgroundColor;
                 text = c.TextColor;
                 textBox1.Text = c.Text;
             }
 
             button1.BackColor = bg;
             button2.BackColor = text;
-            button3.DialogResult = DialogResult.OK;
 
         }
 
@@ -74,19 +86,46 @@ namespace NotedByAbbyAnna
         {
             // | R1 - R2 | + | G1 - G2 | + | B1 - B2 |
             int c = Math.Abs(c1.R - c2.R) + Math.Abs(c1.G - c2.G) + Math.Abs(c1.B - c2.B);
-            
+
             return c;
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            if(Contrast(bg, text) < 500)
+
+            try 
             {
-                DialogResult r = MessageBox.Show("Bad Contrast\nContinue?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                if(r == DialogResult.Yes) 
+                if (Contrast(bg, text) < 500)
                 {
-                    return;
+                    DialogResult r = MessageBox.Show("Bad Contrast\nContinue?", "Warning", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                    if (r != DialogResult.Yes)
+                    {
+                        return;
+
+                    }
+
+
                 }
+
+                if (AllCurrent != null)
+                {
+                    foreach (Category c in AllCurrent)
+                    {
+                        if (c.ID == this.getID())
+                        {
+                            MessageBox.Show("ID's HAVE TO BE UNIQUE");
+                            return;
+                        }
+                    }
+                }
+                DialogResult = DialogResult.OK;
             }
+            catch
+            {
+                MessageBox.Show("ID's MUST BE AN INT");
+
+            }
+
+
 
         }
     }

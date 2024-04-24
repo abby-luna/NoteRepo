@@ -13,5 +13,7 @@ namespace NotedByAbbyAnna
         public void DeleteObj(int deleteID);
         public void UpdateObj(int updateID);
         public void NewObj();
+
+        public void ExportObjToFile();
     }
 }
